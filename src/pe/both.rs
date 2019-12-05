@@ -10,7 +10,7 @@ struct COFF_FILE_HEADER {
 
 impl COFF_FILE_HEADER {
     fn coff_file_header(binary: Vec<u8>, DOS: usize) -> COFF_FILE_HEADER {
-        let chdr: Chdr = Chdr::hoge(binary[DOS..DOS+0x14].to_vec());
+        let chdr: Chdr = Chdr::chdr_struct(binary[DOS..DOS+0x14].to_vec());
         COFF_FILE_HEADER {
             chdr,
         }
@@ -33,7 +33,7 @@ struct Chdr {
     Characteristics: Word,  // The flags that indicate the attributes of the file.
 }
 impl Chdr {
-    fn hoge(binary: Vec<u8>) -> Chdr {
+    fn chdr_struct(binary: Vec<u8>) -> Chdr {
         unsafe {
             std::ptr::read(binary.as_ptr() as *const Chdr)
         }

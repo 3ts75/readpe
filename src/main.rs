@@ -17,7 +17,7 @@ fn main() -> Result<(), Box<std::error::Error>> {
         .takes_value(true)
     );
 
-    let buf: Vec<u8> = read_file("hello_PE_x86.exe".to_string())?;
+    let buf: Vec<u8> = read_file("hello_PE_x64.exe".to_string())?;
     let mut i = 0;
     while buf[i] != 0x50 || buf[i+1] != 0x45 || buf[i+2] != 0x00 || buf[i+3] != 0x00 {
         i += 1;
@@ -31,10 +31,10 @@ fn main() -> Result<(), Box<std::error::Error>> {
     }
 
     if let Some(o) = matches.value_of("Optional-Header") {
-        i += 0x15;
-        match buf[i] {
-            0x01 => pe::pe64::optional_header_pe32_detail(buf.clone(), i),
-            0x02 => pe::pe86::optional_header_pe32_plus_detail(buf.clone(), i),
+        i += 0x14;
+        match buf[i+1] {
+            0x01 => pe::pe86::optional_header_pe32_detail(buf.clone(), i),
+            0x02 => pe::pe64::optional_header_pe32_plus_detail(buf.clone(), i),
             _ => println!("hoge"),
         };
     }

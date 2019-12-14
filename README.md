@@ -1,7 +1,7 @@
 # readpe
 
 ```
-.\readpe <option> <file_name>
+.\readpe.exe <option> <file_name>
 ```
 
 ## option

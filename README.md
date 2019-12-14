@@ -4,15 +4,16 @@
 .\readpe <option> <file_name>
 ```
 
-##option
-- `-h`
+## option
+
+- **-h**
 
 &nbsp; &nbsp; COFF Header
 
-- `-o`
+- **-o**
 
 &nbsp; &nbsp; Optional Header
 
-- `-S`
+- **-S**
 
 &nbsp; &nbsp; Section Header

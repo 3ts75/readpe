@@ -44,7 +44,7 @@ fn name_str(nr: Xword) {
         if (ascii != 0) {
             print!("{:}", std::char::from_u32(ascii).unwrap());
         } else {
-            print!(" ");
+	    print!(" ");
         }
         chr >>= 8;
     }
@@ -77,8 +77,8 @@ struct Img_Section_Hdr {
     pointer_to_relocations: Dword,  // The file pointer to the beginning of relocation entries for the section. 
     pointer_to_linenumbers: Dword,  // The file pointer to the beginning of line-number entries for the section.
     number_of_relocations: Word,  // The number of relocation entries for the section.
-    number_of_linenumber: Word,  // The number of line-number entries for the section. 
-    characteristics: Dword,  // The flags that describe the characteristics of the section. 
+    number_of_linenumber: Word,  // The number of line-number entries for the section.
+    characteristics: Dword,  // The flags that describe the characteristics of the section.
 }
 impl Img_Section_Hdr {
     fn image_section_header_struct(binary: Vec<u8>) -> Img_Section_Hdr {
@@ -125,6 +125,7 @@ pub fn section_header_x86(buf: Vec<u8>, i: usize) {
         section_addr += 0x28;
     }
     
+    println!("+----------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+----------------------------------+");
     println!("{:x}", section_nr);
 }
 

@@ -52,7 +52,6 @@ fn main() -> Result<(), Box<std::error::Error>> {
         }
         _ => println!(".\\readpe.exe <option> <PE File>"),
     }
-
     Ok(())
 }
 

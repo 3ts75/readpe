@@ -90,7 +90,7 @@ impl Img_Section_Hdr {
         print!("|\x1b[38;5;00196m{: <10x}\x1b[m|", val);
     }
     fn val_Dright(val: Dword) {
-        print!("{: >20x}   |", val);
+        print!("{: >20}   |", val);
     }
     fn val_Wright(val: Word) {
         print!("{: >20}   |", val)
@@ -124,7 +124,7 @@ pub fn section_header_x86(buf: Vec<u8>, i: usize) {
         image_section_header.print();
         section_addr += 0x28;
     }
-    println!("+----------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+----------------------------------+");
+    
     println!("{:x}", section_nr);
 }
 
